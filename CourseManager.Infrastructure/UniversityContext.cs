@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using CourseManager.Models;
+using CourseManager.Core.Models;
 
-namespace CourseManager.Infrastructure;
-
-public class UniversityContext : DbContext
+namespace CourseManager.Infrastructure
 {
-    public UniversityContext(DbContextOptions<UniversityContext> options) : base(options)
+
+    public class UniversityContext : DbContext
     {
-        
+        public UniversityContext(DbContextOptions<UniversityContext> options) : base(options)
+        {}
+        public DbSet<Student> Students { get; set; }
+
+        public DbSet<Course> Courses { get; set; }
     }
 }
